@@ -17,9 +17,10 @@ class Platform{
       arry.add(y);
       //random x pos, have to cast int
       arrx.add((int)(Math.random()*399));
-      y-=100;
-           
+      y-=100;    
     }
+    //level add
+    level++;
   }
   //checks if there is a collision
   public boolean checkCollision(){

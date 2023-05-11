@@ -15,6 +15,8 @@ SoundFile jump;
 SoundFile music;
 Platform plat = new Platform();
 int screen = 0;
+//level int
+int level = 0;
 
 void setup() {
   size(500, 800);
@@ -23,7 +25,7 @@ void setup() {
   //initial platforms
   plat.drawNewStage();
   //sprites
-  sprite = loadImage("sprite.jpg");
+  sprite = loadImage("sprite.png");
   platform = loadImage("platform.png");
   backround = loadImage("backround.png");
   //sounds
@@ -60,7 +62,11 @@ void screenone() {
   //System.out.println("Ypos:"+ypos+" Height:"+(height-50));
   background(backround);
   stroke(0);
-  // character
+  // text
+  textAlign(CENTER);
+  textSize(50); 
+  text("Level: " + level, width/2, 50);
+  //character
   image(sprite, xpos, ypos,20,20);
   //System.out.println("Sidespeed: " + sidespeed);
   //bottom
@@ -76,13 +82,13 @@ void screenone() {
    //side
    xpos+=sidespeed;
    //collision?
-   if(xpos>width-10){
+   if(xpos>width-20){
      sidespeed=0;
-     xpos = width-10;
+     xpos = width-20;
     }
-    else if(xpos<10){
+    else if(xpos<0){
       sidespeed = 0;
-      xpos = 10;
+      xpos = 0;
     }
     for(int j = 1; j<8;j++){
       image(platform,plat.arrx.get(j),plat.arry.get(j),100,10);
